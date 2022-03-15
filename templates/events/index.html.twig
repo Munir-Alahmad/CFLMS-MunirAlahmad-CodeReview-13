@@ -1,0 +1,95 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Events index{% endblock %}
+
+{% block body %}
+
+    <div class="herofoto">
+        <img src='/pictures/hero.jpg' style="width: 100%"   alt=''>
+    </div>
+    <div class="titpara">
+        <h1 class="tit">Events in Vienna</h1>
+        <p class="para"> Search over 10000 Events in Vienna</p>
+    </div>
+    <div class="container">
+        <div class="row ">
+            {% for event in events %}
+                <div class="card" style="width: 18rem;">
+                    <a href="{{ event.id }}"><img src='/pictures/{{ event.picture }}'  style="width: 18rem; height: 11rem" alt=''></a>
+                    <div class="card-body">
+                        <h5 class="card-title"> {{ event.name }}</h5>
+                        {# <p class="card-text">{{ event.description }}</p> #}
+                        <p> {{ event.date ? event.date|date('F j, Y, g:i a') : '' }}</p>
+                        <p> {{ event.adress }}</p>
+                        {# <a href="{{ path('app_events_show', {'id': event.id}) }}">show</a>
+                        <a href="{{ path('app_events_edit', {'id': event.id}) }}">edit</a> #}
+                    </div>
+                </div>
+            {% else %}
+                <tr>
+                    <td colspan="12">no result found</td>
+                </tr>
+            {% endfor %}
+        </div>
+    </div>
+
+    {# ----------footer-------------- #}
+
+    <footer class="footer">
+        <div class="container bottom_border">
+            <div class="row">
+                <div class=" col-sm-4 col-md col-sm-4  col-12 col">
+                    <h5 class="headin5_amrc col_white_amrc pt2">Find us</h5>
+                    <p class="mb10">Lorem Ipsum is simply dummy text of the printing</p>
+                    <p><i class="fa fa-location-arrow"></i> maxstrasse,125, 1200 Wien  </p>
+                    <p><i class="fa fa-phone"></i>  +43-99900008  </p>
+                    <p><i class="fa fa fa-envelope"></i> info@example.com  </p>
+                </div>
+                <div class=" col-sm-4 col-md  col-6 col">
+                    <h5 class="headin5_amrc col_white_amrc pt2">Quick links</h5>
+                    <ul class="footer_ul_amrc">
+                        <li><a href="#">SHOW ALL</a></li>
+                        <li><a href="#"> DANCING</a></li>
+                        <li><a href="#">ADVENTURE</a></li>
+                        <li><a href="#">RIDING</a></li>                  
+                    </ul>                  
+                </div>
+                <div class=" col-sm-4 col-md  col-6 col">
+                    <h5 class="headin5_amrc col_white_amrc pt2">Our Events in This Year</h5>                 
+                    <ul class="footer_ul_amrc">
+                        <li><a href="#">Lorem Ipsum is simply</a></li>
+                        <li><a href="#">Lorem Ipsum is simply</a></li>
+                        <li><a href="#">Lorem Ipsum is simply</a></li>
+                        <li><a href="#">Lorem Ipsum is simply</a></li>
+                        <li><a href="#">Lorem Ipsum is simply</a></li>
+                        <li><a href="#">Lorem Ipsum is simply</a></li>
+                    </ul>      
+                </div>
+                <div class=" col-sm-4 col-md  col-12 col">
+                    <div class="footo">
+                     <img src='/pictures/footer.jpg' style="width: 16rem"  alt=''>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <ul class="foote_bottom_ul_amrc">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Pricing</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>     
+            <p class="text-center">Copyright @2022 | Designed by Munir Alahmad - Code Factory Wien Austria
+            <div class="rounded-social-buttons">
+                <a class="social-button facebook" href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                <a class="social-button twitter" href="https://www.twitter.com/" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a class="social-button linkedin" href="https://www.linkedin.com/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a class="social-button youtube" href="https://www.youtube.com/" target="_blank"><i class="fab fa-youtube"></i></a>
+                <a class="social-button instagram" href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </footer>
+     
+{% endblock %}
